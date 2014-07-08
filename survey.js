@@ -8,9 +8,6 @@ var popupStatus = 0;
 function loadPopup(){
 	//loads popup only if it is disabled
 	if(popupStatus==0){
-		$("#backgroundPopup").css({
-			"opacity": "0.7"
-		});
 		$("#backgroundPopup").fadeIn("slow");
 		$("#popupContact").fadeIn("slow");
 		popupStatus = 1;
