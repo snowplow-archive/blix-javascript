@@ -1,9 +1,4 @@
-﻿/***************************/
-//@Author: Adrian "yEnS" Mato Gondelle
-//@website: www.yensdesign.com
-//@email: yensamg@gmail.com
-//@license: Feel free to use it, but keep this credits please!					
-/***************************/
+﻿
 
 //SETTING UP OUR POPUP
 //0 means disabled; 1 means enabled;
@@ -51,16 +46,17 @@ function centerPopup(){
 
 
 //CONTROLLING EVENTS IN jQuery
-$(document).ready(function(){
+window.onload = function(){
 	
 	//LOADING POPUP
 	//Click the button event!
-	$("#button").click(function(){
+	document.getElementById("button").onclick = function(){
+		
 		//centering with css
 		centerPopup();
 		//load popup
 		loadPopup();
-	});
+	};
 				
 	//CLOSING POPUP
 	//Click the x event!
@@ -68,9 +64,9 @@ $(document).ready(function(){
 		disablePopup();
 	});
 	//Click out event!
-	$("#backgroundPopup").click(function(){
+	document.getElementById("backgroundPopup").onclick = function(){
 		disablePopup();
-	});
+	};
 	//Press Escape event!
 	$(document).keypress(function(e){
 		if(e.keyCode==27 && popupStatus==1){
@@ -78,4 +74,4 @@ $(document).ready(function(){
 		}
 	});
 
-});
+};
