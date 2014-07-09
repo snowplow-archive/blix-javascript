@@ -5,18 +5,11 @@
     <link href="more.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" language="javascript" src="more.js"></script>
 	<script type="text/javascript">
-	function confirm(){
-		if(document.TheForm.Q2.checked && document.TheForm.Q1.checked){
-		alert("Thanks for filling in the survey");
-	}
-	else{
-		alert("you need to check an answer to continue!!!");
-	}
-	}
+	
 		 
 		 
 		
-		</script>
+	</script>
 </head>
 <body>
     <input type="button" onclick="showPopup()" value="show" />
@@ -30,10 +23,10 @@
 			C:<input type="radio" name="Q1" value="R3"/><br />
 			
 			And now these<br />
-			A:<input type="checkbox" name="Q2" value="C1"><br />
-			B:<input type="checkbox" name="Q2" value="C2"><br />
-			C:<input type="checkbox" name="Q2" value="C3"><br />
-			<input type="submit" value="Submit!" onClick="confirm()">
+			A:<input type="checkbox" name="Q2" value="C1" class="check"><br />
+			B:<input type="checkbox" name="Q2" value="C2" class="check"><br />
+			C:<input type="checkbox" name="Q2" value="C3" class="check"><br />
+			<input type="button" value="Submit!" onClick=  "confirm()" />
 		</form>
     </div>
 

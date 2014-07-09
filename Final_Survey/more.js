@@ -43,15 +43,15 @@ function getPageSize() {
 }
 
 function setOverlay() {
-    ///Get screen dimesions
+    //Get screen dimesions
     var arrScrDim = getPageSize();
 
-    ///Set dimensions of background div
+    //Set dimensions of background div
     document.getElementById('fade').style.width = (arrScrDim["pageWidth"] + 'px');
     document.getElementById('fade').style.height = (arrScrDim["pageHeight"] + 'px');
 }
 
-///Show popup
+//Show popup
 function showPopup() {
    setOverlay();
 	
@@ -70,13 +70,29 @@ function fade(element) {
             element.style.display = ' ';
         }
         element.style.opacity = op;
-       // element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op += op * 0.1;
     }, 20);
 }
 
-///Close popup
+//Close popup
 function closePopup() {
     document.getElementById("content").style.display = 'none';
     document.getElementById("fade").style.display = 'none';
-}	
+}
+
+//validator
+function confirm(){
+	var done = false;
+	var checkElements = document.getElementsByClassName("check");
+	var allChecked = true;
+	for (var i = 0; i < checkElements.length; i++) {
+		if (!checkElements[i].checked) {
+			allChecked = false;
+		}
+	}
+	if (allChecked){
+		alert("Thanks friend");
+		done = true;
+		closePopup();
+	}
+}
