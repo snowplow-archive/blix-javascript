@@ -11,8 +11,28 @@
     left:35%;
     z-index:1002;
     
-    width: 25%;
+    width: 45%;
+	
     color:#D6D6D6;
     border:solid 1px #000000;
     background-color:#232323;
+	
+	textarea{position:fixed;}
+
+}
+
+#noAns{
+font-size:30px;
+line-height:14px;
+right:6px;
+top:4px;
+position:absolute;
+color:Pink;
+font-weight:700;
+display:block;
+cursor: pointer;
+}
+
+textarea{
+	resize:none;
 }

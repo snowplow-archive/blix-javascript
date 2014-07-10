@@ -72,7 +72,7 @@ function fade(element) {
 //Close popup
 function closePopup() {
     document.getElementById("content").style.display = 'none';
-    document.getElementById("fade").style.display = 'none';
+	document.body.removeChild(document.getElementById("snowplowOverlay"));
 }
 
 //validator
@@ -80,19 +80,32 @@ function confirm(){
 	var done = false;
 	var checkElements = document.getElementsByClassName("check");
 	var allChecked = true;
+	var theText = document.getElementById("box").value;
 	for (var i = 0; i < checkElements.length; i++) {
 		if (!checkElements[i].checked) {
 			allChecked = false;
 		}
 	}
 	if (allChecked){
-		alert("Thanks friend");
+		displayText(theText);
 		done = true;
 		closePopup();
 	}
 }
 
-
+function displayText(theText){
+	if (theText == null || theText == ' '){
+		alert("Hey enter something now");
+	}//end if
+	else{
+		alert(theText);
+	}
+	
+}
+function refuse(){
+	document.getElementById("noAns");
+	closePopup();
+}
 
 
 function Q(elementId){
@@ -111,16 +124,15 @@ function Q(elementId){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+function fade(element) {
+    var op = 0.1;  // initial opacity
+	element.style.opacity = op;
+    var timer = setInterval(function () {
+        if (op >= 0.5){
+            clearInterval(timer);
+            element.style.display = ' ';
+        }
+        element.style.opacity = op;
+        op += op * 0.1;
+    }, 20);
+}

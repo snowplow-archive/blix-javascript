@@ -4,18 +4,13 @@
     <title>CSS Layer</title>
     <link href="more.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" language="javascript" src="more.js"></script>
-	<script type="text/javascript">
-	
-		 
-		 
-		
-	</script>
 </head>
 <body>
     <input type="button" onclick="showPopup()" value="show" />
 
     <!--Popup-->
     <div id="content" class="white_content">
+		<a id="noAns" onClick="refuse()" title="Click to exit this pop-up">X</a>
         <form name="TheForm" id="contactArea">
 			Take some time to answer these questions <br />
 			A:<input type="radio" name="Q1" value="R1"/><br />
@@ -26,7 +21,10 @@
 			A:<input type="checkbox" name="Q2" value="C1" class="check"><br />
 			B:<input type="checkbox" name="Q2" value="C2" class="check"><br />
 			C:<input type="checkbox" name="Q2" value="C3" class="check"><br />
-			<input type="button" value="Submit!" onClick=  "confirm()" />
+			The textbox part<br />
+			<textarea id="box" name="randomText" row="10" cols="40">
+			</textarea><br />
+			<input type="button" value="Submit!" onClick= "confirm()" class="randomText" /><br />
 		</form>
     </div>
 
