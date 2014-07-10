@@ -6,7 +6,7 @@
  { 
     display:none;
     
-    position:absolute;
+    position:fixed;
     top:35%;
     left:35%;
     z-index:1002;
@@ -35,4 +35,5 @@ cursor: pointer;
 
 textarea{
 	resize:none;
+	text-align: left;
 }

@@ -46,16 +46,17 @@ function getPageSize() {
 
 //Show popup
 function showPopup() {
-   Q("snowplowOverlay");
+   setOpactiy("snowplowOverlay");
    
    
 	//createOverlay();
     ///Display popup and background divs
     document.getElementById("content").style.display = 'block';
+	document.getElementById("box").value = "";
     document.getElementById("snowplowOverlay").style.display = 'block';
 	fade(document.getElementById("snowplowOverlay"));
 }
-
+//perfoms fade animation
 function fade(element) {
     var op = 0.1;  // initial opacity
 	element.style.opacity = op;
@@ -74,41 +75,59 @@ function closePopup() {
     document.getElementById("content").style.display = 'none';
 	document.body.removeChild(document.getElementById("snowplowOverlay"));
 }
-
-//validator
+//
 function confirm(){
 	var done = false;
 	var checkElements = document.getElementsByClassName("check");
-	var allChecked = true;
-	var theText = document.getElementById("box").value;
-	for (var i = 0; i < checkElements.length; i++) {
-		if (!checkElements[i].checked) {
-			allChecked = false;
-		}
-	}
-	if (allChecked){
+	var anyChecked = false;
+	 var theText = document.getElementById("box").value;
+	for (var i = 0; i < checkElements.length; i++){
+			if(checkElements[i].checked){
+				anyChecked = true;
+			}//end if
+	}//end for
+	if(anyChecked && checkRadioBtn() === true && theText !== ""){
 		displayText(theText);
 		done = true;
 		closePopup();
+		
 	}
-}
+	else{
+		alert("Hey, you forgot something");
+	}
+}//end function confirm()*/
 
+function checkRadioBtn(){
+	var radioSet = document.getElementsByClassName("radiobtn");
+	for(var x=0; x<radioSet.length; x++){
+		if(radioSet[x].checked){
+			return true;
+		}
+	}
+	return false;
+}
+//var theText
 function displayText(theText){
+	boolText = false;
 	if (theText == null || theText == ' '){
+		boolText = false;
 		alert("Hey enter something now");
 	}//end if
 	else{
+		//boolText = true;
 		alert(theText);
+		
 	}
 	
 }
+//if the used clicks on the X
 function refuse(){
 	document.getElementById("noAns");
 	closePopup();
 }
 
-
-function Q(elementId){
+//set the state of the main web page when the popup is activated
+function setOpactiy(elementId){
 	var overlay = document.createElement("div");
 	overlay.style.opacity = ".80"; 
 	overlay.style.backgroundColor = "black";
@@ -123,7 +142,7 @@ function Q(elementId){
 	overlay.id = elementId;
 }
 
-
+//sets the fading
 function fade(element) {
     var op = 0.1;  // initial opacity
 	element.style.opacity = op;
