@@ -42,23 +42,18 @@ function getPageSize() {
     };
 }
 
-function setOverlay() {
-    //Get screen dimesions
-    var arrScrDim = getPageSize();
 
-    //Set dimensions of background div
-    document.getElementById('fade').style.width = (arrScrDim["pageWidth"] + 'px');
-    document.getElementById('fade').style.height = (arrScrDim["pageHeight"] + 'px');
-}
 
 //Show popup
 function showPopup() {
-   setOverlay();
-	
+   Q("snowplowOverlay");
+   
+   
+	//createOverlay();
     ///Display popup and background divs
     document.getElementById("content").style.display = 'block';
-    document.getElementById("fade").style.display = 'block';
-	fade(document.getElementById("fade"));
+    document.getElementById("snowplowOverlay").style.display = 'block';
+	fade(document.getElementById("snowplowOverlay"));
 }
 
 function fade(element) {
@@ -96,3 +91,36 @@ function confirm(){
 		closePopup();
 	}
 }
+
+
+
+
+function Q(elementId){
+	var overlay = document.createElement("div");
+	overlay.style.opacity = ".80"; 
+	overlay.style.backgroundColor = "black";
+	overlay.style.zIndex = "1001";
+	overlay.style.position = "absolute";
+	overlay.style.top = "0";
+	overlay.style.left = "0";
+	overlay.style.width = "100%";
+	overlay.style.height = "100%";
+	document.body.appendChild(overlay);
+	
+	overlay.id = elementId;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,16 +16,3 @@
     border:solid 1px #000000;
     background-color:#232323;
 }
-
-.black_overlay
- { 
-    display:none;
-    
-    position:absolute;
-    top:0%;
-    left:0%;
-    z-index:1001;
-    
-    background-color:#000000;
-    opacity:.80;
-}
