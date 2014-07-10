@@ -106,7 +106,7 @@ function checkRadioBtn(){
 	}
 	return false;
 }
-//var theText
+
 function displayText(theText){
 	boolText = false;
 	if (theText == null || theText == ' '){
@@ -114,8 +114,8 @@ function displayText(theText){
 		alert("Hey enter something now");
 	}//end if
 	else{
-		//boolText = true;
-		alert(theText);
+		
+		sendPopupEvent(theText);
 		
 	}
 	
