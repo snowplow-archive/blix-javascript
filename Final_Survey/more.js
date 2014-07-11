@@ -5,6 +5,16 @@ window.onload = function() {
 		document.body.appendChild(emptyDiv);
 	$("#includedContent").load("more.html");
 }
+
+//allows more.js implement more.css removing dependency on example.html
+var head  = document.getElementsByTagName('head')[0];
+var link  = document.createElement('link');
+link.rel  = 'stylesheet';
+link.type = 'text/css';
+link.href = 'more.css';
+document.head.appendChild(link);
+
+
 //Show popup
 function showPopup(snowplowFunctionName) {
     window.snowplowFunction = snowplowFunctionName;
