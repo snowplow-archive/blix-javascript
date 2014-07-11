@@ -1,62 +1,23 @@
 
-
-function getPageSize() {
-    var xScroll, yScroll;
-    if (window.innerHeight && window.scrollMaxY) {
-        xScroll = document.body.scrollWidth;
-        yScroll = window.innerHeight + window.scrollMaxY;
-    } else if (document.body.scrollHeight > document.body.offsetHeight) { // all but Explorer Mac
-        xScroll = document.body.scrollWidth;
-        yScroll = document.body.scrollHeight;
-    } else { // Explorer Mac...would also work in Explorer 6 Strict, Mozilla and Safari
-        xScroll = document.body.offsetWidth;
-        yScroll = document.body.offsetHeight;
-    }
-
-    var windowWidth, windowHeight;
-    if (self.innerHeight) {    // all except Explorer
-        windowWidth = self.innerWidth;
-        windowHeight = self.innerHeight;
-    } else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
-        windowWidth = document.documentElement.clientWidth;
-        windowHeight = document.documentElement.clientHeight;
-    } else if (document.body) { // other Explorers
-        windowWidth = document.body.clientWidth;
-        windowHeight = document.body.clientHeight;
-    }
-
-    // for small pages with total height less then height of the viewport
-    if (yScroll < windowHeight) pageHeight = windowHeight;
-    else pageHeight = yScroll;
-
-    // for small pages with total width less then width of the viewport
-    if (xScroll < windowWidth) pageWidth = windowWidth;
-    else pageWidth = xScroll;
-
-    if (navigator.userAgent.indexOf("Firefox") != -1)
-    { pageWidth = pageWidth - 17; }
-
-    return {
-        "pageWidth": pageWidth,
-        "pageHeight": pageHeight,
-        "windowWidth": windowWidth,
-        "windowHeight": windowHeight
-    };
+window.onload = function() {
+	var emptyDiv = document.createElement('div');
+		emptyDiv.id = 'includedContent';
+		document.body.appendChild(emptyDiv);
+	$("#includedContent").load("more.html");
 }
-
-
-
 //Show popup
-function showPopup() {
-   setOpactiy("snowplowOverlay");
-   
+function showPopup(snowplowFunctionName) {
+    window.snowplowFunction = snowplowFunctionName;
+    setOpactiy("snowplowOverlay");
    
 	//createOverlay();
+	
     ///Display popup and background divs
     document.getElementById("content").style.display = 'block';
 	document.getElementById("box").value = "";
     document.getElementById("snowplowOverlay").style.display = 'block';
 	fade(document.getElementById("snowplowOverlay"));
+		
 }
 //perfoms fade animation
 function fade(element) {
@@ -123,11 +84,6 @@ function displayText(theText){
 	}
 	
 }//end function
-//if the used clicks on the X
-function refuse(){
-	document.getElementById("noAns");
-	closePopup();
-}
 
 //set the state of the main web page when the popup is activated
 function setOpactiy(elementId){
@@ -158,3 +114,15 @@ function fade(element) {
         op += op * 0.1;
     }, 20);
 }
+
+function sendPopupEvent(text) {
+		window.snowplowFunction('trackUnstructEvent', {
+			schema: 'iglu:snowplowanalytics.snowplow/popup/jsonschema/2-0-0',
+			data: {
+				fieldValue: text
+			}
+		});
+}
+
+
+

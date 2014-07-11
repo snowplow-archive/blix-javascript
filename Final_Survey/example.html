@@ -5,12 +5,7 @@
     <link href="more.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" language="javascript" src="more.js"></script>
 	<script src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.9.1.min.js"> </script>
-	<script>
-		 $(function(){
-			$("#includedContent").load("more.html");
-    });
-    </script> 
-	</script>
+
 	<script async=true>
 
 	;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
@@ -32,24 +27,14 @@
 	  writeCookies: true
 	});
 	
-	function sendPopupEvent(text) {
-		snowplowPopup('trackUnstructEvent', {
-			schema: 'iglu:snowplowanalytics.snowplow/popup/jsonschema/2-0-0',
-			data: {
-				fieldValue: text
-			}
-		});
-	}
-	
+
 	</script>	
 </head>
 <body>
-    <input type="button" onclick="showPopup()" value="show" />
+    <input type="button" onclick="showPopup(snowplowPopup)" value="show" />
 
     <!--Popup-->
-	<div id="includedContent"></div>
-
-    <!--Background-->
+	
     
 </body>
 </html>
