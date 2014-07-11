@@ -1,65 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-    <title>CSS Layer</title>
-    <link href="more.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" language="javascript" src="more.js"></script>
-	<script async=true>
-
-	;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
-	p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
-	};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
-	n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","http://d1fc8wv8zag5ca.cloudfront.net/2.0.0/sp.js","snowplowPopup"));
-
-	snowplowPopup("newTracker", "cf", "d3rkrsqld9gmqf.cloudfront.net", {
-	  appId: "cfe23a",
-	  platform: "mob",
-	  cookieDomain: null,
-	  cookieName: "_sp534_",
-	  contextVendor: "com.my_company",
-	  encodeBase64: false,
-	  respectDoNotTrack: false,
-	  userFingerprint: true,
-	  userFingerprintSeed: 6385926734,
-	  pageUnloadTimer: 0,
-	  writeCookies: true
-	});
-	
-	function sendPopupEvent(text) {
-		snowplowPopup('trackUnstructEvent', {
-			schema: 'iglu:snowplowanalytics.snowplow/popup/jsonschema/2-0-0',
-			data: {
-				fieldValue: text
-			}
-		});
-	}
-	
-	</script>	
-</head>
-<body>
-    <input type="button" onclick="showPopup()" value="show" />
-
-    <!--Popup-->
     <div id="content" class="white_content">
 		<a id="noAns" onClick="refuse()" title="Click to exit this pop-up">X</a>
         <form name="TheForm" id="contactArea">
-			Take some time to answer these questions <br />
+			
+			<div id="includedContent"></div> <br />
 			A:<input type="radio" name="Q1" value="R1" class="radiobtn"/><br />
 			B:<input type="radio" name="Q1" value="R2" class="radiobtn"/><br />
 			C:<input type="radio" name="Q1" value="R3" class="radiobtn"/><br />
 			
 			And now these<br />
-			A:<input type="checkbox" name="Q2" value="C1" class="check"><br />
-			B:<input type="checkbox" name="Q2" value="C2" class="check"><br />
-			C:<input type="checkbox" name="Q2" value="C3" class="check"><br />
+			A:<input type="checkbox" name="Q2" value="C1" class="check"/><br />
+			B:<input type="checkbox" name="Q2" value="C2" class="check"/><br />
+			C:<input type="checkbox" name="Q2" value="C3" class="check"/><br />
 			The textbox part<br />
-			<textarea id="box" name="randomText" row="10" cols="0">
+			<textarea id="box" name="randomText" row="10" cols="40">
 			</textarea><br />
 			<input type="button" value="Submit!" onClick= "confirm()" class="randomText" /><br />
 		</form>
     </div>
-
-    <!--Background-->
-    
-</body>
-</html>

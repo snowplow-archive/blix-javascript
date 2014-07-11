@@ -1,7 +1,5 @@
-/*
-    style.css
-*/
 
+/*The actual popup */
 .white_content
  { 
     display:none;
@@ -20,7 +18,7 @@
 	textarea{position:fixed;}
 
 }
-
+/*the X button to not do the survey*/
 #noAns{
 font-size:30px;
 line-height:14px;
@@ -32,7 +30,7 @@ font-weight:700;
 display:block;
 cursor: pointer;
 }
-
+/*keep resize to none*/
 textarea{
 	resize:none;
 	text-align: left;

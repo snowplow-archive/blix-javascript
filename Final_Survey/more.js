@@ -1,3 +1,5 @@
+
+
 function getPageSize() {
     var xScroll, yScroll;
     if (window.innerHeight && window.scrollMaxY) {
@@ -75,7 +77,7 @@ function closePopup() {
     document.getElementById("content").style.display = 'none';
 	document.body.removeChild(document.getElementById("snowplowOverlay"));
 }
-//
+//the checks after the survey is completed
 function confirm(){
 	var done = false;
 	var checkElements = document.getElementsByClassName("check");
@@ -93,10 +95,11 @@ function confirm(){
 		
 	}
 	else{
-		alert("Hey, you forgot something");
+		alert("Hey, you forgot something"); //stops the user from going back to the website if some data is not filled in
 	}
 }//end function confirm()*/
 
+//to check if the radio button has a value
 function checkRadioBtn(){
 	var radioSet = document.getElementsByClassName("radiobtn");
 	for(var x=0; x<radioSet.length; x++){
@@ -105,7 +108,7 @@ function checkRadioBtn(){
 		}
 	}
 	return false;
-}
+}//end function
 
 function displayText(theText){
 	boolText = false;
@@ -119,7 +122,7 @@ function displayText(theText){
 		
 	}
 	
-}
+}//end function
 //if the used clicks on the X
 function refuse(){
 	document.getElementById("noAns");
