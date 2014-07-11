@@ -4,13 +4,15 @@
  { 
     display:none;
     
-    position:fixed;
-    top:35%;
-    left:35%;
+    position:absolute;
+    top:20%;
+    left:50%;
     z-index:1002;
     
-    width: 45%;
-	
+	margin-left: -250px;
+    margin-right: auto;
+    width: 500px;
+	vertical-align: middle;
     color:#D6D6D6;
     border:solid 1px #000000;
     background-color:#232323;
@@ -36,11 +38,14 @@ textarea{
 	text-align: left;
 }
 
-h3{
-	font-size:30px;
+.general{font-size:25px;}
 
+
+#para.general{
+	font-size: 20px;
 }
 
-p{
-	font-size:20px;;
+
+#head3.general{
+	font-size: 30px;
 }
